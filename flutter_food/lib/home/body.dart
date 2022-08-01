@@ -11,7 +11,7 @@ class HomeBody extends StatefulWidget {
 }
 
 class _HomeBodyState extends State<HomeBody> {
-  double _currentPage = 1.0;
+  double _currentPage = 0.0;
   PageController pagecontroller = PageController();
 
   @override
@@ -102,7 +102,7 @@ class _HomeBodyState extends State<HomeBody> {
                 color: Colors.black,
                 size: 20,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 10,
               ),
               MdText(
@@ -132,9 +132,7 @@ class _HomeBodyState extends State<HomeBody> {
           color: Colors.deepPurpleAccent.shade100,
           borderRadius: BorderRadius.circular(25),
           image: DecorationImage(
-              image: AssetImage("assets/images/home/slide/img" +
-                  (index + 1).toString() +
-                  ".jpg"),
+              image: AssetImage("assets/images/home/slide/img${index + 1}.jpg"),
               fit: BoxFit.cover)),
     );
   }

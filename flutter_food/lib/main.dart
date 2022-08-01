@@ -23,21 +23,20 @@ class MyApp extends StatelessWidget {
 
   BottomNavigationBar BottomNav() {
     return BottomNavigationBar(
-      // backgroundColor: Colors.deepPurpleAccent,
-      currentIndex: 1,
+      currentIndex: 0,
       iconSize: 27,
       elevation: 10,
       showUnselectedLabels: false,
       showSelectedLabels: false,
       unselectedIconTheme: IconThemeData(color: Colors.grey.shade900),
-      selectedIconTheme: IconThemeData(color: Colors.deepPurple),
-
-      items: const [
+      selectedIconTheme: IconThemeData(color: Colors.deepPurpleAccent.shade700),
+      items: [
         BottomNavigationBarItem(
           icon: Icon(
             Icons.home,
           ),
           label: "Home",
+          backgroundColor: Colors.deepPurple.shade200,
         ),
         BottomNavigationBarItem(
             icon: Icon(

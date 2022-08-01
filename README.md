@@ -1,1 +1,2 @@
 # MiniProject
+![HomePage]("./HomePage.jpg")

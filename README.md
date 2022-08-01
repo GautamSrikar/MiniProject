@@ -1,2 +1,2 @@
 # MiniProject
-![HomePage]("./Homescreen.jpg")
+![HomePage](Homescreen.jpg)

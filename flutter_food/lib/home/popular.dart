@@ -34,7 +34,7 @@ class _PopularState extends State<Popular> {
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(
                   width: 0.3,
-                  color: Colors.grey,
+                  color: Colors.white,
                 )),
             child: Row(
               children: [

@@ -14,11 +14,11 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.deepPurple,
         ),
-        home: SafeArea(
-            child: Scaffold(
-                backgroundColor: Colors.grey.shade50,
-                body: const Home(),
-                bottomNavigationBar: BottomNav())));
+        home: Scaffold(
+            backgroundColor: Colors.grey.shade50,
+            body: const Home(),
+            // body: const PopularPage(),
+            bottomNavigationBar: BottomNav()));
   }
 
   BottomNavigationBar BottomNav() {
@@ -28,29 +28,29 @@ class MyApp extends StatelessWidget {
       elevation: 10,
       showUnselectedLabels: false,
       showSelectedLabels: false,
-      unselectedIconTheme: IconThemeData(color: Colors.grey.shade900),
+      unselectedIconTheme: IconThemeData(color: Colors.black),
       selectedIconTheme: IconThemeData(color: Colors.deepPurpleAccent.shade700),
       items: [
         BottomNavigationBarItem(
           icon: Icon(
-            Icons.home,
+            Icons.home_outlined,
           ),
           label: "Home",
           backgroundColor: Colors.deepPurple.shade200,
         ),
         BottomNavigationBarItem(
             icon: Icon(
-              Icons.explore,
+              Icons.explore_outlined,
             ),
             label: "Explore"),
         BottomNavigationBarItem(
             icon: Icon(
-              Icons.shopping_cart,
+              Icons.shopping_cart_outlined,
             ),
             label: "Cart"),
         BottomNavigationBarItem(
             icon: Icon(
-              Icons.account_circle,
+              Icons.account_circle_outlined,
             ),
             label: "Account"),
       ],

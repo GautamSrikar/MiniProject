@@ -7,8 +7,10 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: const [Head(), HomeBody()],
+    return SafeArea(
+      child: Column(
+        children: const [Head(), HomeBody()],
+      ),
     );
   }
 }

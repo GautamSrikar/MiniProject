@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_food/widgets/mediumtext.dart';
 
@@ -20,6 +19,16 @@ class PopularPage extends StatefulWidget {
 }
 
 class _PopularPageState extends State<PopularPage> {
+  int count = 1;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    setState(() {
+      count = 1;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,21 +36,26 @@ class _PopularPageState extends State<PopularPage> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           FloatingActionButton(
+              mini: true,
               heroTag: null,
+              materialTapTargetSize: MaterialTapTargetSize.padded,
               onPressed: () => Navigator.pop(context),
               backgroundColor: Colors.purple.shade50,
               child: const Icon(
-                Icons.arrow_back,
+                Icons.arrow_back_sharp,
                 color: Colors.purple,
+                size: 16,
               )),
           Padding(
             padding: const EdgeInsets.all(22.0),
             child: FloatingActionButton(
+                mini: true,
                 onPressed: () => Navigator.pop(context),
                 backgroundColor: Colors.purple.shade50,
                 child: const Icon(
                   Icons.shopping_cart_outlined,
                   color: Colors.purple,
+                  size: 18,
                 )),
           )
         ],
@@ -154,29 +168,52 @@ class _PopularPageState extends State<PopularPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Container(
-                            width: 100,
+                            width: 120,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Icon(
-                                  Icons.remove,
-                                  color: Colors.white,
-                                ),
+                                IconButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        if (count != 0) {
+                                          count -= 1;
+                                        }
+                                      });
+                                    },
+                                    icon: Icon(
+                                      Icons.remove,
+                                      color: Colors.white,
+                                    )),
                                 Text(
-                                  "1",
+                                  "$count",
                                   style: TextStyle(color: Colors.white),
                                 ),
-                                Icon(
-                                  Icons.add,
-                                  color: Colors.white,
-                                )
+                                IconButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        count += 1;
+                                      });
+                                    },
+                                    icon: Icon(
+                                      Icons.add,
+                                      color: Colors.white,
+                                    )),
                               ],
                             ),
                           ),
-                          Icon(
-                            Icons.shopping_cart,
-                            color: Colors.white,
-                          )
+                          TextButton(
+                              onPressed: () {},
+                              child: Container(
+                                padding: EdgeInsets.all(12),
+                                decoration: BoxDecoration(
+                                    color: Colors.purple.shade50,
+                                    borderRadius: BorderRadius.circular(8)),
+                                child: MdText(
+                                  text: " \$20 Add to cart",
+                                  size: 18,
+                                  color: Colors.purple,
+                                ),
+                              ))
                         ]),
                   )))
         ],

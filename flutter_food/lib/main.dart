@@ -1,12 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_food/acoount/main.dart';
+import 'package:flutter_food/cart/main.dart';
+import 'package:flutter_food/explore/main.dart';
 import 'package:flutter_food/home/main.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  int _index = 0;
+  dynamic routes = [Home(), Explore(), Cart(), Account()];
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -16,14 +28,24 @@ class MyApp extends StatelessWidget {
         ),
         home: Scaffold(
             backgroundColor: Colors.grey.shade50,
-            body: const Home(),
+            body: routes[_index],
             // body: const PopularPage(),
             bottomNavigationBar: BottomNav()));
   }
 
+  void handleTap(int index) {
+    setState(() {
+      if (_index < 4) {
+        _index = index;
+        print(index);
+      }
+    });
+  }
+
   BottomNavigationBar BottomNav() {
     return BottomNavigationBar(
-      currentIndex: 0,
+      currentIndex: _index,
+      onTap: handleTap,
       iconSize: 27,
       elevation: 10,
       showUnselectedLabels: false,

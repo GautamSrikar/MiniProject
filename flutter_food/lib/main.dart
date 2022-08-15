@@ -35,7 +35,7 @@ class _MyAppState extends State<MyApp> {
 
   void handleTap(int index) {
     setState(() {
-      if (_index < 4) {
+      if (_index < 4 && _index != index) {
         _index = index;
         print(index);
       }
@@ -44,6 +44,7 @@ class _MyAppState extends State<MyApp> {
 
   BottomNavigationBar BottomNav() {
     return BottomNavigationBar(
+      backgroundColor: Colors.deepPurpleAccent.shade700,
       currentIndex: _index,
       onTap: handleTap,
       iconSize: 27,
@@ -52,13 +53,12 @@ class _MyAppState extends State<MyApp> {
       showSelectedLabels: false,
       unselectedIconTheme: IconThemeData(color: Colors.black),
       selectedIconTheme: IconThemeData(color: Colors.deepPurpleAccent.shade700),
-      items: [
+      items: const [
         BottomNavigationBarItem(
           icon: Icon(
             Icons.home_outlined,
           ),
           label: "Home",
-          backgroundColor: Colors.deepPurple.shade200,
         ),
         BottomNavigationBarItem(
             icon: Icon(

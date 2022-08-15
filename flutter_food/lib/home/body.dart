@@ -1,5 +1,6 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_food/data/main.dart';
 import 'package:flutter_food/home/popular.dart';
 import 'package:flutter_food/screens/popularScreen.dart';
 import 'package:flutter_food/widgets/mediumtext.dart';
@@ -14,32 +15,7 @@ class HomeBody extends StatefulWidget {
 class _HomeBodyState extends State<HomeBody> {
   double _currentPage = 0.0;
   PageController pagecontroller = PageController();
-  final names = [
-    {
-      "name": "Samosa",
-      "rest": "West Side",
-      "discription":
-          "A samosa or singara is a fried or baked pastry with a savory filling, including ingredients such as spiced potatoes, onions, and peas. It may take different forms, including triangular, cone, or half-moon shapes, depending on the region. Samosas are often accompanied by chutney, and have origins in medieval times or earlier."
-    },
-    {
-      "name": "Egg Ommlette",
-      "rest": "Modren Run",
-      "discription":
-          "In cuisine, an omelette is a dish made from beaten eggs, fried with butter or oil in a frying pan. It is quite common for the omelette to be folded around fillings such as chives, vegetables, mushrooms, meat, cheese, onions or some combination."
-    },
-    {
-      "name": "Chicken Biryani",
-      "rest": "Corner Bistro",
-      "discription":
-          "Chicken Biryani is a mixed rice dish with chiken originating among the royal khansamas of the durbar of Old Delhi, under the Mughal Empire, during the late 16th century of the erstwhile Mughal Cour"
-    },
-    {
-      "name": "Mutton Biryani",
-      "rest": "Corner Bistro",
-      "discription":
-          "Mutton Biryani is a mixed rice dish with mutton originating among the royal khansamas of the durbar of Old Delhi, under the Mughal Empire, during the late 16th century of the erstwhile Mughal Cour"
-    },
-  ];
+
   @override
   void initState() {
     super.initState();
@@ -116,7 +92,7 @@ class _HomeBodyState extends State<HomeBody> {
               ),
             )
           ]),
-          SizedBox(height: 30),
+          const SizedBox(height: 30),
           Row(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
@@ -138,7 +114,7 @@ class _HomeBodyState extends State<HomeBody> {
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
           Popular()
@@ -160,6 +136,7 @@ class _HomeBodyState extends State<HomeBody> {
                 builder: (context) => PopularPage(
                     name: names[index]["name"].toString(),
                     rest: names[index]["rest"].toString(),
+                    price: names[index]["price"].toString(),
                     description: names[index]["discription"].toString(),
                     url: "assets/images/home/slide/img${i}.jpg")));
       },

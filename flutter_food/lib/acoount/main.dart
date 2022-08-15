@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_food/screens/login.dart';
 
 class Account extends StatelessWidget {
   const Account({Key? key}) : super(key: key);
@@ -7,7 +8,7 @@ class Account extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Container(
-      child: Text("Text Account"),
+      child: LoginPage(),
     ));
   }
 }

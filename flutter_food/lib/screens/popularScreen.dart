@@ -6,12 +6,14 @@ class PopularPage extends StatefulWidget {
   final String rest;
   final String url;
   final String description;
+  final String price;
   const PopularPage(
       {Key? key,
       required this.name,
       required this.rest,
       required this.url,
-      required this.description})
+      required this.description,
+      required this.price})
       : super(key: key);
 
   @override
@@ -20,12 +22,13 @@ class PopularPage extends StatefulWidget {
 
 class _PopularPageState extends State<PopularPage> {
   int count = 1;
+  int money = 1;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     setState(() {
       count = 1;
+      // money = int.parse(widget.price) * count;
     });
   }
 
@@ -80,7 +83,7 @@ class _PopularPageState extends State<PopularPage> {
                   child: Container(
                     // width: double.infinity,
 
-                    padding: EdgeInsets.all(20),
+                    padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
                         color: Colors.purple.shade50,
                         borderRadius: const BorderRadius.only(
@@ -157,9 +160,9 @@ class _PopularPageState extends State<PopularPage> {
               flex: 1,
               child: Container(
                   color: Colors.purple.shade50,
-                  padding: EdgeInsets.all(20),
+                  padding: const EdgeInsets.all(20),
                   child: Container(
-                    padding: EdgeInsets.all(20),
+                    padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
                       color: Colors.deepPurple.shade300,
                       borderRadius: BorderRadius.circular(30),
@@ -175,26 +178,28 @@ class _PopularPageState extends State<PopularPage> {
                                 IconButton(
                                     onPressed: () {
                                       setState(() {
-                                        if (count != 0) {
+                                        if (count > 1) {
                                           count -= 1;
+                                          // int.parse(widget.price);
                                         }
                                       });
                                     },
-                                    icon: Icon(
+                                    icon: const Icon(
                                       Icons.remove,
                                       color: Colors.white,
                                     )),
                                 Text(
                                   "$count",
-                                  style: TextStyle(color: Colors.white),
+                                  style: const TextStyle(color: Colors.white),
                                 ),
                                 IconButton(
                                     onPressed: () {
                                       setState(() {
                                         count += 1;
+                                        // int.parse(widget.price);
                                       });
                                     },
-                                    icon: Icon(
+                                    icon: const Icon(
                                       Icons.add,
                                       color: Colors.white,
                                     )),
@@ -204,14 +209,25 @@ class _PopularPageState extends State<PopularPage> {
                           TextButton(
                               onPressed: () {},
                               child: Container(
-                                padding: EdgeInsets.all(12),
+                                padding: const EdgeInsets.all(12),
                                 decoration: BoxDecoration(
                                     color: Colors.purple.shade50,
                                     borderRadius: BorderRadius.circular(8)),
-                                child: MdText(
-                                  text: " \$20 Add to cart",
-                                  size: 18,
-                                  color: Colors.purple,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    MdText(
+                                      text:
+                                          " \$ ${int.parse(widget.price) * count}",
+                                      size: 18,
+                                      color: Colors.purple,
+                                    ),
+                                    MdText(
+                                      text: " Add to cart",
+                                      size: 18,
+                                      weight: FontWeight.w400,
+                                    )
+                                  ],
                                 ),
                               ))
                         ]),

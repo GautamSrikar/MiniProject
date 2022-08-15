@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_food/data/main.dart';
 
 import 'package:flutter_food/widgets/mediumtext.dart';
 
@@ -10,15 +11,6 @@ class Popular extends StatefulWidget {
 }
 
 class _PopularState extends State<Popular> {
-  final List<Map<String, String>> restaurents = [
-    {"name": "Chinese Side", "distance": "3.4", "time": "45"},
-    {"name": "Modren Run", "distance": "5.4", "time": "62"},
-    {"name": "Bind", "distance": "2.4", "time": "38"},
-    {"name": "West Worlds", "distance": "3.7", "time": "45"},
-    {"name": "Cafe Bilhares", "distance": "3.0", "time": "40"},
-    {"name": "Corner Bistro", "distance": "1.4", "time": "25"}
-  ];
-
   @override
   Widget build(BuildContext context) {
     return (ListView.builder(

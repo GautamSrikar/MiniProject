@@ -3,7 +3,6 @@ import 'package:flutter_food/acoount/main.dart';
 import 'package:flutter_food/cart/main.dart';
 import 'package:flutter_food/explore/main.dart';
 import 'package:flutter_food/home/main.dart';
-import 'package:flutter_food/screens/login.dart';
 
 void main() {
   runApp(const MyApp());
@@ -36,52 +35,101 @@ class _MyAppState extends State<MyApp> {
             backgroundColor: Colors.grey.shade50,
             body: routes[_index],
             // body: const PopularPage(),
-            bottomNavigationBar: BottomNav()));
+            bottomNavigationBar: Nav()));
   }
 
-  void handleTap(int index) {
-    setState(() {
-      if (_index < 4 && _index != index) {
-        _index = index;
-        print(index);
-      }
-    });
-  }
+  // void handleTap(int index) {
+  //   setState(() {
+  //     if (_index < 4 && _index != index) {
+  //       _index = index;
+  //     }
+  //   });
+  // }
 
-  BottomNavigationBar BottomNav() {
-    return BottomNavigationBar(
-      backgroundColor: Colors.deepPurpleAccent.shade700,
-      currentIndex: _index,
-      onTap: handleTap,
-      iconSize: 27,
-      elevation: 10,
-      showUnselectedLabels: false,
-      showSelectedLabels: false,
-      unselectedIconTheme: IconThemeData(color: Colors.black),
-      selectedIconTheme: IconThemeData(color: Colors.deepPurpleAccent.shade700),
-      items: const [
-        BottomNavigationBarItem(
-          icon: Icon(
-            Icons.home_outlined,
+  // BottomNavigationBar BottomNav() {
+  //   return BottomNavigationBar(
+  //     currentIndex: _index,
+  //     onTap: handleTap,
+  //     iconSize: 27,
+  //     elevation: 10,
+  //     showUnselectedLabels: false,
+  //     showSelectedLabels: false,
+  //     unselectedIconTheme: IconThemeData(color: Colors.black),
+  //     selectedIconTheme: IconThemeData(color: Colors.deepPurpleAccent.shade700),
+  //     items: const [
+  //       BottomNavigationBarItem(
+  //         icon: Icon(
+  //           Icons.home_outlined,
+  //         ),
+  //         label: "Home",
+  //       ),
+  //       BottomNavigationBarItem(
+  //           icon: Icon(
+  //             Icons.explore_outlined,
+  //           ),
+  //           label: "Explore"),
+  //       BottomNavigationBarItem(
+  //           icon: Icon(
+  //             Icons.shopping_cart_outlined,
+  //           ),
+  //           label: "Cart"),
+  //       BottomNavigationBarItem(
+  //           icon: Icon(
+  //             Icons.account_circle_outlined,
+  //           ),
+  //           label: "Account"),
+  //     ],
+  //   );
+  NavigationBarTheme Nav() {
+    return NavigationBarTheme(
+      data: NavigationBarThemeData(
+        indicatorColor: Colors.white.withAlpha(150),
+      ),
+      child: NavigationBar(
+        backgroundColor: Colors.deepPurple.withAlpha(100),
+        labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
+        selectedIndex: _index,
+        onDestinationSelected: (int newindex) {
+          setState(() {
+            _index = newindex;
+          });
+        },
+        destinations: const [
+          NavigationDestination(
+            icon: Icon(
+              Icons.home_outlined,
+            ),
+            selectedIcon: Icon(
+              Icons.home,
+            ),
+            label: "Home",
           ),
-          label: "Home",
-        ),
-        BottomNavigationBarItem(
-            icon: Icon(
-              Icons.explore_outlined,
-            ),
-            label: "Explore"),
-        BottomNavigationBarItem(
-            icon: Icon(
-              Icons.shopping_cart_outlined,
-            ),
-            label: "Cart"),
-        BottomNavigationBarItem(
-            icon: Icon(
-              Icons.account_circle_outlined,
-            ),
-            label: "Account"),
-      ],
+          NavigationDestination(
+              icon: Icon(
+                Icons.explore_outlined,
+              ),
+              selectedIcon: Icon(
+                Icons.explore,
+              ),
+              label: "Explore"),
+          NavigationDestination(
+              icon: Icon(
+                Icons.shopping_cart_outlined,
+              ),
+              selectedIcon: Icon(
+                Icons.shopping_cart,
+              ),
+              label: "Cart"),
+          NavigationDestination(
+              selectedIcon: Icon(
+                Icons.account_circle,
+              ),
+              icon: Icon(
+                Icons.account_circle_outlined,
+              ),
+              label: "Account")
+        ],
+      ),
     );
   }
 }

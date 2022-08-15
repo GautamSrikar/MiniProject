@@ -1,5 +1,3 @@
-import 'package:flutter/widgets.dart';
-
 const List<Map<String, String>> restaurents = [
   {"name": "Chinese Side", "distance": "3.4", "time": "45"},
   {"name": "Modren Run", "distance": "5.4", "time": "62"},
@@ -40,4 +38,4 @@ const names = [
   },
 ];
 
-int ind = 0;
+List<Map<String, String>> cart = [];

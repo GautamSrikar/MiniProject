@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_food/data/main.dart';
 import 'package:flutter_food/widgets/mediumtext.dart';
 
 class PopularPage extends StatefulWidget {
@@ -213,21 +214,35 @@ class _PopularPageState extends State<PopularPage> {
                                 decoration: BoxDecoration(
                                     color: Colors.purple.shade50,
                                     borderRadius: BorderRadius.circular(8)),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    MdText(
-                                      text:
-                                          " \$ ${int.parse(widget.price) * count}",
-                                      size: 18,
-                                      color: Colors.purple,
-                                    ),
-                                    MdText(
-                                      text: " Add to cart",
-                                      size: 18,
-                                      weight: FontWeight.w400,
-                                    )
-                                  ],
+                                child: GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      cart.add({
+                                        "name": widget.name,
+                                        "price":
+                                            (int.parse(widget.price) * count)
+                                                .toString(),
+                                        "url": widget.url,
+                                        "restaurent": widget.rest
+                                      });
+                                    });
+                                  },
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      MdText(
+                                        text:
+                                            " \$ ${int.parse(widget.price) * count}",
+                                        size: 18,
+                                        color: Colors.purple,
+                                      ),
+                                      MdText(
+                                        text: " Add to cart",
+                                        size: 18,
+                                        weight: FontWeight.w400,
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ))
                         ]),

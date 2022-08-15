@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_food/acoount/main.dart';
+import 'package:flutter_food/data/main.dart';
 import 'package:flutter_food/screens/register.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -109,20 +111,29 @@ class _LoginPageState extends State<LoginPage> {
 
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                child: Container(
-                  padding: const EdgeInsets.all(20.0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    color: Colors.deepPurpleAccent,
-                  ),
-                  child: const Center(
+                child: GestureDetector(
+                  onTap: () {
+                    ind = 2;
+                    print("SD");
+                    // Navigator.push(context,
+                    //     MaterialPageRoute(builder: (context) => Account()));
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.all(20.0),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      color: Colors.deepPurpleAccent,
+                    ),
+                    child: const Center(
                       child: Text(
-                    'Log in',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16.0),
-                  )),
+                        'Log in',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16.0),
+                      ),
+                    ),
+                  ),
                 ),
               ),
               //not a member? register now

@@ -3,6 +3,7 @@ import 'package:flutter_food/acoount/main.dart';
 import 'package:flutter_food/cart/main.dart';
 import 'package:flutter_food/explore/main.dart';
 import 'package:flutter_food/home/main.dart';
+import 'package:flutter_food/screens/login.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +18,12 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   int _index = 0;
-  dynamic routes = [Home(), Explore(), Cart(), Account()];
+  dynamic routes = [
+    Home(),
+    Explore(),
+    Cart(),
+    Account(),
+  ];
 
   @override
   Widget build(BuildContext context) {

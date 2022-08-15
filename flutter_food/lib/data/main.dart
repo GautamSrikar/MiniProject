@@ -39,3 +39,5 @@ const names = [
         "Mutton Biryani is a mixed rice dish with mutton originating among the royal khansamas of the durbar of Old Delhi, under the Mughal Empire, during the late 16th century of the erstwhile Mughal Cour"
   },
 ];
+
+int ind = 0;

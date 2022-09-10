@@ -51,8 +51,11 @@ class _AccountState extends State<Account> {
                 text: "Log Out",
                 icon: Icons.exit_to_app,
                 press: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => LoginPage()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          settings: RouteSettings(name: "/Account"),
+                          builder: (context) => LoginPage()));
                 },
               ),
             ],

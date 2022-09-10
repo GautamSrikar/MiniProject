@@ -38,4 +38,14 @@ const names = [
   },
 ];
 
-List<Map<String, String>> cart = [];
+List<Map<String, String>> cart = [
+  {
+    'name': 'Samosa',
+    'price': '5',
+    'url': 'assets/images/home/slide/img1.jpg',
+    'restaurent': 'West Side',
+    'quantity': '1'
+  }
+];
+
+double total = 5;

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_food/acoount/main.dart';
+import 'package:flutter_food/cart/checkout.dart';
 import 'package:flutter_food/cart/main.dart';
+import 'package:flutter_food/data/main.dart';
 import 'package:flutter_food/explore/main.dart';
 import 'package:flutter_food/home/main.dart';
 
@@ -33,6 +35,18 @@ class _MyAppState extends State<MyApp> {
         ),
         home: Scaffold(
             backgroundColor: Colors.grey.shade50,
+            floatingActionButton: _index == 2
+                ? FloatingActionButton.extended(
+                    onPressed: () {
+                      setState(() {
+                        // _index = 4;
+                      });
+                    },
+                    backgroundColor: Colors.deepPurpleAccent.shade200,
+                    icon: Icon(Icons.attach_money),
+                    label: Text('$total  Order now'),
+                  )
+                : Container(),
             body: routes[_index],
             // body: const PopularPage(),
             bottomNavigationBar: Nav()));
@@ -88,7 +102,7 @@ class _MyAppState extends State<MyApp> {
       child: NavigationBar(
         backgroundColor: Colors.deepPurple.withAlpha(100),
         labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
-        selectedIndex: _index,
+        selectedIndex: _index > 3 ? 2 : _index,
         onDestinationSelected: (int newindex) {
           setState(() {
             _index = newindex;

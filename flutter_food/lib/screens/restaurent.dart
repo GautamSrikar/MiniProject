@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_food/data/main.dart';
 import 'package:flutter_food/widgets/mediumtext.dart';
 
-class PopularPage extends StatefulWidget {
+class MyWidget extends StatelessWidget {
   final String name;
   final String rest;
   final String url;
   final String description;
   final String price;
-  const PopularPage(
+  const MyWidget(
       {Key? key,
       required this.name,
       required this.rest,
@@ -18,26 +17,8 @@ class PopularPage extends StatefulWidget {
       : super(key: key);
 
   @override
-  State<PopularPage> createState() => _PopularPageState();
-}
-
-class _PopularPageState extends State<PopularPage> {
-  int count = 1;
-  int money = 1;
-  int i = 0;
-  @override
-  void initState() {
-    super.initState();
-    setState(() {
-      i = cart.length;
-      count = 1;
-      // money = int.parse(widget.price) * count;
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return (Scaffold(
       floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -66,12 +47,12 @@ class _PopularPageState extends State<PopularPage> {
                       size: 18,
                     )),
                 Positioned(
-                  right: 8,
-                  top: 6,
+                  right: 7,
+                  top: 4,
                   child: Container(
                     child: MdText(
-                      text: "${cart.length}",
-                      color: Colors.purpleAccent,
+                      text: "j",
+                      color: Colors.deepPurpleAccent,
                       size: 15,
                       weight: FontWeight.w600,
                     ),
@@ -92,7 +73,7 @@ class _PopularPageState extends State<PopularPage> {
                 Container(
                   decoration: BoxDecoration(
                       image: DecorationImage(
-                          fit: BoxFit.cover, image: AssetImage(widget.url))),
+                          fit: BoxFit.cover, image: AssetImage(url))),
                 ),
                 Positioned(
                   height: 350,
@@ -114,12 +95,12 @@ class _PopularPageState extends State<PopularPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             MdText(
-                              text: widget.name,
+                              text: name,
                               weight: FontWeight.w500,
                               size: 24,
                             ),
                             MdText(
-                              text: widget.rest,
+                              text: rest,
                               color: Colors.grey,
                             ),
                             Row(
@@ -167,7 +148,7 @@ class _PopularPageState extends State<PopularPage> {
                             MdText(
                               text: "Description",
                             ),
-                            Text(widget.description)
+                            Text(description)
                           ]),
                     ),
                   ),
@@ -195,29 +176,17 @@ class _PopularPageState extends State<PopularPage> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 IconButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        if (count > 1) {
-                                          count -= 1;
-                                          // int.parse(widget.price);
-                                        }
-                                      });
-                                    },
+                                    onPressed: () {},
                                     icon: const Icon(
                                       Icons.remove,
                                       color: Colors.white,
                                     )),
                                 Text(
-                                  "$count",
+                                  "count",
                                   style: const TextStyle(color: Colors.white),
                                 ),
                                 IconButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        count += 1;
-                                        // int.parse(widget.price);
-                                      });
-                                    },
+                                    onPressed: () {},
                                     icon: const Icon(
                                       Icons.add,
                                       color: Colors.white,
@@ -226,25 +195,7 @@ class _PopularPageState extends State<PopularPage> {
                             ),
                           ),
                           TextButton(
-                            onPressed: () {
-                              setState(() {
-                                i = cart.length;
-                                cart.add({
-                                  "name": widget.name,
-                                  "price": (int.parse(widget.price) * count)
-                                      .toString(),
-                                  "url": widget.url,
-                                  "restaurent": widget.rest,
-                                  "quantity": "$count"
-                                });
-                                total = 0;
-                                cart.forEach((element) {
-                                  total = total +
-                                      double.parse(element["price"].toString());
-                                });
-                                print(total);
-                              });
-                            },
+                            onPressed: () {},
                             child: Container(
                               padding: const EdgeInsets.all(12),
                               decoration: BoxDecoration(
@@ -254,8 +205,7 @@ class _PopularPageState extends State<PopularPage> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   MdText(
-                                    text:
-                                        " \$ ${int.parse(widget.price) * count}",
+                                    text: " \$ ${int.parse(price)}",
                                     size: 14,
                                     color: Colors.purple,
                                   ),
@@ -272,7 +222,7 @@ class _PopularPageState extends State<PopularPage> {
                   )))
         ],
       )),
-    );
+    ));
   }
 
   Container iconText(IconData icon, String text, Color color) {

@@ -46,7 +46,7 @@ class Head extends StatelessWidget {
                     color: Colors.deepPurpleAccent,
                     borderRadius: BorderRadius.circular(15)),
                 child: const Icon(
-                  Icons.search,
+                  Icons.notifications,
                   color: Colors.white,
                 ),
               )

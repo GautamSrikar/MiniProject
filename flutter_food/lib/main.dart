@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_food/acoount/main.dart';
-import 'package:flutter_food/cart/checkout.dart';
+
 import 'package:flutter_food/cart/main.dart';
 import 'package:flutter_food/data/main.dart';
 import 'package:flutter_food/explore/main.dart';
